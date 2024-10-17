@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<style>.messages {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;           /* Remove default padding */
+}
+
+.messages li {
+    margin: 10px 0;       /* Space between messages */
+    padding: 10px;        /* Padding inside messages */
+    border-radius: 5px;   /* Rounded corners */
+}
+
+.messages li.success {
+    background-color: #d4edda; /* Light green background for success */
+    color: #155724;             /* Dark green text */
+}
+
+.messages li.error {
+    background-color: #f8d7da;  /* Light red background for errors */
+    color: #721c24;             /* Dark red text */
+}
+
+.messages li.warning {
+    background-color: #fff3cd;  /* Light yellow background for warnings */
+    color: #856404;             /* Dark yellow text */
+}
+</style>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+{% include 'components/header.html' %}
+
+{% block data %}
+{% endblock data %}
+
+
+{% include 'components/footer.html' %}
+</body>
+</html>

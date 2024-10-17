@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+
+{% block data %}
+    <style>/* Full-screen container */
+.container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header */
+.card-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Body */
+.card-body {
+    padding: 30px;
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.8;
+    background-color: #f9f9f9;
+}
+
+.card-body p.description {
+    font-size: 1.3rem;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.card-body p.meta {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: black;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+/* Icons for meta details */
+.card-body p.meta span {
+    margin-right: 8px;
+    font-size: 1.4rem;
+    color: black;
+}
+
+.card-body p.meta .duration-icon::before {
+    content: '\1F553'; /* Clock icon */
+    margin-right: 5px;
+}
+
+.card-body p.meta .price-icon::before {
+    content: '\1F4B0'; /* Money bag icon */
+    margin-right: 5px;
+}
+
+.card-body p.meta .date-icon::before {
+    content: '\1F4C5'; /* Calendar icon */
+    margin-right: 5px;
+}
+
+/* Ensure full width for content */
+.card {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+}
+        .enrollment {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Add some space at the top */
+}
+
+.enrollment a {
+    display: inline-block;
+    background-color: #007bff; /* Button background color (blue) */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding around the text */
+    font-size: 16px; /* Font size */
+    font-weight: bold;
+    text-decoration: none; /* Remove underline from the link */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.enrollment a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+</style>
+<div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>{{ course.title }}</h3>
+            </div>
+            <div class="card-body">
+                <p class="description">{{ course.description }}</p>
+                <p class="meta duration-icon">Duration: {{ course.duration }} hours</p>
+                <p class="meta price-icon">Price: {{ course.price }} USD</p>
+                <p class="meta date-icon">Created at: {{ course.created_at }}</p>
+
+            </div>
+            <div class="enrollment"><a href="{% url 'enrollment' %}">Enroll Now!</a></div>
+        </div>
+
+</div>
+
+{% endblock data %}
